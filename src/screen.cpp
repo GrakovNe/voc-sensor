@@ -7,10 +7,16 @@ void init_screen() {
     u8g2.begin();
     u8g2.clearDisplay();
     u8g2.clearBuffer();
-    draw_tvoc(8888);
+}
+
+void draw_calibration() {
+    u8g2.clearBuffer();
+    u8g2.drawXBMP(CALIBRATION_WIDTH_OFFSET, CALIBRATION_HEIGHT_OFFSET, calibration_width, calibration_height, calibration);
+    u8g2.sendBuffer();
 }
 
 void draw_tvoc(int tvoc) {
+    u8g2.clearBuffer();
     u8g2.drawXBMP(TVOC_FIRST_DIG_OFFSET, TVOC_HEIGHT_OFFSET, dig_width, dig_height, digits[(tvoc / 1000)]);
     u8g2.drawXBMP(TVOC_SECOND_DIG_OFFSET, TVOC_HEIGHT_OFFSET, dig_width, dig_height, digits[tvoc % 1000 / 100]);
     u8g2.drawXBMP(TVOC_THIRD_DIG_OFFSET, TVOC_HEIGHT_OFFSET, dig_width, dig_height, digits[tvoc % 100 / 10]);

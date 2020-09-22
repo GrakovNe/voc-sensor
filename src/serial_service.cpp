@@ -9,6 +9,13 @@ void push_serial() {
     Serial.flush();
 }
 
+
+void push_calibration() {
+    sprintf(buffer, "Calibration...\n");
+    Serial.write(buffer);
+    Serial.flush();
+}
+
 void init_serial() {
     Serial.begin(9600);
 }

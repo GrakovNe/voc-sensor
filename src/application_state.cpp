@@ -1,3 +1,3 @@
 #include "application_state.h"
 
-int tvoc_value = 0;
+int tvoc_value = 9999;
